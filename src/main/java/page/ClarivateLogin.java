@@ -14,17 +14,17 @@ public class ClarivateLogin {
         this.driver = driver;
     }
 
-   // private By link = By.xpath("//section[@id= 'wos']//p/a[@href= 'https://access.clarivate.com/login?app=cmc']");
-    private By link = By.xpath("//section[@id= 'wos']//p/a[@text= 'Cortellis CMC Intelligence Login']");
+   private By link = By.xpath("//section[@id= 'wos']//p/a[@href= 'https://access.clarivate.com/login?app=cmc']");
+    //private By link = By.xpath("//section[@id= 'wos']//p/a[@text= 'Cortellis CMC Intelligence Login']");
 
     public void loginCortellis() {
 
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(link)).click();
 
-       // driver.findElement(link).getAttribute("href");
-        driver.get( driver.findElement(link).getAttribute("href"));
+       String url = driver.findElement(link).getAttribute("href");
+        driver.get( url);
 
-        driver.getCurrentUrl();
+        //driver.getCurrentUrl();
         //driver.findElement(link).click();
     }
 }

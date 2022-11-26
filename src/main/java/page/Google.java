@@ -18,15 +18,15 @@ public class Google {
     private By search = By.xpath("//input[@name= 'q']");
     //private By linkClarivate = By.xpath("//body[@id= 'gsr']");
 
-    public void acceptCookies(){
+    public void acceptCookies() {
         driver.findElement(acceptAll).click();
     }
 
-    public void enterKeyword(){
+    public void enterKeyword() {
         driver.findElement(search).sendKeys(CLARIVATE);
     }
 
-    public void goSearching(){
+    public void goSearching() {
         driver.findElement(search).submit();
     }
 

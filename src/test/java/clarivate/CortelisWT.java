@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.*;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class CortelisWT {
@@ -17,12 +18,15 @@ public class CortelisWT {
     private CortellisHome cortellisHome;
     private ClarivateLogin clarivateLogin;
     private CortellisLogin cortellisLogin;
-    public ChromeDriver driver;
+
+    public static final String GOOGLE_URL = "https://www.google.com/";
+    public static final String CORTELLIS_LOGIN_URL = "https://access.cortellis.com/login?app=cmc";
 
     @Test()
     public void loginCortelisUrl_getCortelisLoginPageUrl_UrlIsCorrect(){
+
         ChromeDriver driver = new ChromeDriver();
-        driver.get("https://www.google.com/");
+        driver.get(GOOGLE_URL);
 
         google = new Google(driver);
         googleSearch = new GoogleSearch(driver);
@@ -43,14 +47,8 @@ public class CortelisWT {
         ourSolutions.goCortellisCMCIntelligence();
         cortellisHome.loginCortellis();
         clarivateLogin.loginCortellis();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.getCurrentUrl();
-        Assert.assertEquals(cortellisLogin.getUrl()," https://access.cortellis.com/login?app=cmc");
 
-        //CortellisLogin
-
-        //driver.close();
-
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        Assert.assertEquals(cortellisLogin.getUrl(),CORTELLIS_LOGIN_URL);
     }
 }
