@@ -5,13 +5,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ClarivateGenerics {
 
-    public ChromeDriver driver;
+    private final ChromeDriver driver;
 
     public ClarivateGenerics(ChromeDriver driver) {
         this.driver = driver;
     }
 
-    public void goOurSolutions(){
-        driver.findElement(By.linkText("Our solutions")).click();
+    private By link = By.linkText("Our solutions");
+
+    public void goOurSolutions() {
+        driver.findElement(link).click();
     }
 }

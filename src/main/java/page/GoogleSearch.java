@@ -5,12 +5,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class GoogleSearch {
 
-    public ChromeDriver driver;
+    private final ChromeDriver driver;
 
     public GoogleSearch(ChromeDriver driver) {
         this.driver = driver;
     }
-    public void enterClarivate(){
+
+    public void enterClarivate() {
+
         driver.findElement(By.linkText("clarivate.com")).click();
     }
 
